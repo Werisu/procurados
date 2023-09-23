@@ -1,0 +1,137 @@
+.titulo-interna {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-image: url(https://www.procurados.org.br/images/bg-titulo-interna.jpg);
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: black;
+}
+.titulo-interna h1 {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  font-weight: 900;
+  color: white;
+  font-size: 46px;
+  text-shadow: 1px 2px 5px #000000;
+}
+
+/* container */
+.mais-procurado img, .mais-procurado-2 img {
+  width: 100%;
+  object-fit: cover!important;
+  max-height: 500px;
+}
+
+.mais-procurado .infos {
+    margin-top: -87px;
+    position: absolute;
+    padding: 20px;
+    height: 90px;
+}
+
+ul.crimes li {
+  font-size: 15px;
+  color: #e0e0e0;
+  line-height: 32px;
+  list-style: none;
+  margin-top: 25px;
+  display: flex;
+}
+
+ul.crimes li span.funcao:before {
+  content: "Função:";
+  color: #ffbe00;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 8px;
+  display: inline-block;
+}
+ul.crimes li span.atuacao:before {
+  content: "Atuação:";
+  color: #ffbe00;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 8px;
+  display: inline-block;
+}
+ul.crimes li span.nascimento:before {
+  content: "Nascimento:";
+  color: #ffbe00;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 8px;
+  display: inline-block;
+}
+ul.crimes li span.num-rg:before {
+  content: "RG:";
+  color: #ffbe00;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 8px;
+  display: inline-block;
+}
+ul.crimes li span.natural:before {
+  content: "Natural:";
+  color: #ffbe00;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 8px;
+  display: inline-block;
+}
+ul.crimes li span.situacao:before {
+  content: "Situação:";
+  color: #ffbe00;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 8px;
+  display: inline-block;
+}
+.menu-redes a.share.interna-procurado {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 15px;
+  margin-right: 20px;
+  color: #ef2c2c;
+}
+.menu-redes.interna-procurado {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  position: relative;
+  display: -webkit-inline-box;
+}
+.menu-redes li {
+  display: -webkit-inline-box;
+  margin-left: 5px;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+a:hover {
+  color: #d9d9d9;
+  text-decoration: underline;
+}
+h2, .h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffb400;
+  margin-bottom: 35px;
+}
+h2:after, .h2:after {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background: #fff;
+  margin-top: 10px;
+  display: block;
+}
+.conteudo-interna p, .pag-noticias p, .pag-contato p {
+  font-size: 15px;
+  color: #e0e0e0;
+  line-height: 22px;
+}

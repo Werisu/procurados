@@ -1,0 +1,499 @@
+<div class="container">
+  <app-banner-procurados></app-banner-procurados>
+  <app-carousel></app-carousel>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h2 class="">Buscar procurado</h2>
+    </div>
+    <div class="mx-auto col-md-12 p-3">
+      <form
+        action="/resultado"
+        method="post"
+        class="busca-form"
+        id="busca-form"
+      >
+        <div class="form row">
+          <div class="form-group col-md-4 mt-2">
+            <input
+              type="text"
+              class="form-control filter-busca-procurado busca-nome-apelido"
+              name="busca-nome-apelido"
+              id="busca-nome-apelido"
+              placeholder="Nome ou apelido"
+              alt="Nome ou apelido"
+              title="Nome ou apelido"
+            />
+          </div>
+          <div class="form-group col-md-4 mt-2">
+            <input
+              type="text"
+              class="form-control filter-busca-procurado busca-bairro-atuacao"
+              name="busca-bairro-atuacao"
+              id="busca-bairro-atuacao"
+              placeholder="Bairro ou área de atuação"
+              alt="Bairro ou área de atuação"
+              title="Bairro ou área de atuação"
+            />
+          </div>
+          <div class="form-group col-md-4 mt-2">
+            <select
+              class="custom-select form-select filter-busca-procurado busca-categoria w-100 form-control"
+              id="busca-categoria"
+              name="busca-categoria"
+            >
+              <option class="optBuscas" selected="" value="">
+                Categoria de Crime
+              </option>
+              <option *ngFor="let item of valoresOptions" [value]="item">
+                {{ item }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="form row">
+          <div class="form-group col-md-4 mt-2">
+            <select
+              class="custom-select form-select filter-busca-procurado busca-recompensa w-100 form-control"
+              id="busca-recompensa"
+              name="busca-recompensa"
+            >
+              <option class="optBuscas" selected="" value="">Recompensa</option>
+              <option class="optBuscas" value="10 mil">10 mil</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4 mt-2">
+            <select
+              class="custom-select form-select filter-busca-procurado busca-faccao w-100 form-control"
+              id="busca-faccao"
+              name="busca-faccao"
+            >
+              <option class="optBuscas" selected="" value="">Facção</option>
+
+              <option class="optBuscas" value="A.D.A - Amigo dos Amigos ">
+                A.D.A - Amigo dos Amigos
+              </option>
+              <option class="optBuscas" value="ADA - Amigos dos Amigos">
+                ADA - Amigos dos Amigos
+              </option>
+              <option class="optBuscas" value="Comando Vermelho">
+                Comando Vermelho
+              </option>
+              <option class="optBuscas" value="Comando Vermelho - CV ">
+                Comando Vermelho - CV
+              </option>
+              <option class="optBuscas" value="Comando Vermelho - CV - ">
+                Comando Vermelho - CV -
+              </option>
+              <option class="optBuscas" value="CV - Comando Vermelho">
+                CV - Comando Vermelho
+              </option>
+              <option class="optBuscas" value="Milicia ">Milicia</option>
+              <option class="optBuscas" value="Milícia">Milícia</option>
+              <option class="optBuscas" value="Milícia da Gardênia Azul ">
+                Milícia da Gardênia Azul
+              </option>
+              <option class="optBuscas" value="Milícia Liga Justiça">
+                Milícia Liga Justiça
+              </option>
+              <option class="optBuscas" value="Milícia/Escritório do Crime">
+                Milícia/Escritório do Crime
+              </option>
+              <option class="optBuscas" value="Milícia/Liga da Justiça ">
+                Milícia/Liga da Justiça
+              </option>
+              <option class="optBuscas" value="Não Informado">
+                Não Informado
+              </option>
+              <option
+                class="optBuscas"
+                value="PCV - Primeiro Comando de Vitória"
+              >
+                PCV - Primeiro Comando de Vitória
+              </option>
+              <option class="optBuscas" value="TCP - Terceiro Comando Puro">
+                TCP - Terceiro Comando Puro
+              </option>
+              <option class="optBuscas" value="Terceiro Comando Puro">
+                Terceiro Comando Puro
+              </option>
+              <option class="optBuscas" value="Terceiro Comando Puro - TCP ">
+                Terceiro Comando Puro - TCP
+              </option>
+              <option class="optBuscas" value="Terceiro Comando Puro - TCP - ">
+                Terceiro Comando Puro - TCP -
+              </option>
+            </select>
+          </div>
+          <div class="form-group col-md-4 mt-2">
+            <select
+              class="custom-select form-select filter-busca-procurado busca-faixa-idade w-100 form-control"
+              id="busca-faixa-idade"
+              name="busca-faixa-idade"
+            >
+              <option class="optBuscas" selected="" value="">
+                Faixa etária
+              </option>
+              <option class="optBuscas" value="18~21">18 a 21 anos</option>
+              <option class="optBuscas" value="22~30">22 a 30 anos</option>
+              <option class="optBuscas" value="31~40">31 a 40 anos</option>
+              <option class="optBuscas" value="41~60">41 a 60 anos</option>
+              <option class="optBuscas" value="61~">Mais de 61 anos</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary bt-buscar-home">
+          Buscar
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- O mais procurados -->
+  <div class="py-5 w-100">
+    <div class="container">
+      <div class="row top-3">
+        <div class="col-md-12">
+          <h2>Os mais procurados</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container w-100" id="w-100">
+      <div class="row mais-procurados" id="mais-procurados">
+        <div class="col-md-3 p-0">
+          <a href="/procurado/4011">
+            <div class="mais-procurado">
+              <img
+                style="height: 500px"
+                class="img-fluid d-block"
+                src="https://www.procurados.org.br/uploaded/arquivos/29_9_2022__6_1.png"
+              />
+              <div class="infos gradient">
+                <div class="nome w-100 text-wrap">
+                  "Nico da Furquim <br />Mendes ou Mister"
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-3 p-0">
+          <a href="/procurado/3993">
+            <div class="mais-procurado">
+              <img
+                style="height: 500px"
+                class="img-fluid d-block"
+                src="https://www.procurados.org.br/uploaded/arquivos/14_1_2022__0_maridao.png"
+              />
+              <div class="infos gradient">
+                <div class="nome w-100 text-wrap">Maridão ou Queixada</div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-3 p-0">
+          <a href="/procurado/naizinho-dos-maritimos">
+            <div class="mais-procurado">
+              <img
+                style="height: 500px"
+                class="img-fluid d-block"
+                src="https://www.procurados.org.br/uploaded/arquivos/7_1_2022__0_MAGRO.png"
+              />
+              <div class="infos gradient">
+                <div class="nome w-100 text-wrap">
+                  Naizinho dos <br />Marítimos ou Magro
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-3 p-0">
+          <a href="/procurado/doca-da-penha">
+            <div class="mais-procurado">
+              <img
+                style="height: 500px"
+                class="img-fluid d-block"
+                src="https://www.procurados.org.br/uploaded/arquivos/doca.jpg"
+              />
+              <div class="infos gradient">
+                <div class="nome w-100 text-wrap">Doca da Penha ou Urso</div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-3 p-0">
+          <a href="/procurado/4006">
+            <div class="mais-procurado">
+              <img
+                style="height: 500px"
+                class="img-fluid d-block"
+                src="https://www.procurados.org.br/uploaded/arquivos/29_9_2022__1_1.png"
+              />
+              <div class="infos gradient">
+                <div class="nome w-100 text-wrap">"Professor do Alemão"</div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-3 p-0">
+          <a href="/procurado/4002">
+            <div class="mais-procurado">
+              <img
+                style="height: 500px"
+                class="img-fluid d-block"
+                src="https://www.procurados.org.br/uploaded/arquivos/27_9_2022__0_22.png"
+              />
+              <div class="infos gradient">
+                <div class="nome w-100 text-wrap">"Renan da Maré"</div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-3 p-0">
+          <a href="/procurado/3990">
+            <div class="mais-procurado">
+              <img
+                style="height: 500px"
+                class="img-fluid d-block"
+                src="https://www.procurados.org.br/uploaded/arquivos/14_1_2022__0_CLEITON .png"
+              />
+              <div class="infos gradient">
+                <div class="nome w-100 text-wrap">Mãozinha</div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-3 p-0">
+          <a href="/procurado/3989">
+            <div class="mais-procurado">
+              <img
+                style="height: 500px"
+                class="img-fluid d-block"
+                src="https://www.procurados.org.br/uploaded/arquivos/14_1_2022__0_PRETINHO.png"
+              />
+              <div class="infos gradient">
+                <div class="nome w-100 text-wrap">Pretinho</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ O mais procurados -->
+
+  <!-- Em destaque -->
+  <div class="col-md-9 pr-5">
+    <div class="row top-6">
+      <div class="col-md-12">
+        <h2>Em Destaque</h2>
+      </div>
+      <div class="col-md-12 top-m-2">
+        <div id="div-procurados-destaque">
+          <div
+            class="col-md-3 p-0 top-2"
+            style="height: 300px; display: inline-table"
+          >
+            <div class="mais-procurado-2">
+              <a href="/procurado/1354">
+                <div class="nome-2">Euro</div>
+                <img
+                  style="height: 300px;"
+                  class="img-fluid d-block pd5"
+                  src="https://www.procurados.org.br/uploaded/arquivos/10_3_2015__0_fotoin_euro.jpg"
+                />
+                <div class="infos-2 gradient"></div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="col-md-3 p-0 top-2"
+            style="height: 300px; display: inline-table"
+          >
+            <div class="mais-procurado-2">
+              <a href="/procurado/1040">
+                <div class="nome-2">Taco</div>
+                <img
+                  style="height: 300px;"
+                  class="img-fluid d-block pd5"
+                  src="https://www.procurados.org.br/uploaded/arquivos/6_11_2013__2_fotoin_taco.jpg"
+                />
+                <div class="infos-2 gradient"></div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="col-md-3 p-0 top-2"
+            style="height: 300px; display: inline-table"
+          >
+            <div class="mais-procurado-2">
+              <a href="/procurado/3826">
+                <div class="nome-2">Rex</div>
+                <img
+                  style="height: 300px;"
+                  class="img-fluid d-block pd5"
+                  src="https://www.procurados.org.br/uploaded/arquivos/2_9_2019__0_paulo ricardo.jpg"
+                />
+                <div class="infos-2 gradient"></div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="col-md-3 p-0 top-2"
+            style="height: 300px; display: inline-table"
+          >
+            <div class="mais-procurado-2">
+              <a href="/procurado/madrinha-da-cidade-alta-e-imbarie">
+                <div class="nome-2">
+                  Madrinha da Cidade Alta e Parque Paulista
+                </div>
+                <img
+                  style="height: 300px;"
+                  class="img-fluid d-block pd5"
+                  src="https://www.procurados.org.br/uploaded/arquivos/1_2_2019__0_Luana-Rosa.png"
+                />
+                <div class="infos-2 gradient"></div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="col-md-3 p-0 top-2"
+            style="height: 300px; display: inline-table"
+          >
+            <div class="mais-procurado-2">
+              <a href="/procurado/3810">
+                <div class="nome-2">Marley</div>
+                <img
+                  style="height: 300px;"
+                  class="img-fluid d-block pd5"
+                  src="https://www.procurados.org.br/uploaded/arquivos/16_8_2019__0_marley.png"
+                />
+                <div class="infos-2 gradient"></div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="col-md-3 p-0 top-2"
+            style="height: 300px; display: inline-table"
+          >
+            <div class="mais-procurado-2">
+              <a href="/procurado/w-da-rocinha">
+                <div class="nome-2">W da Rocinha</div>
+                <img
+                  style="height: 300px;"
+                  class="img-fluid d-block pd5"
+                  src="https://www.procurados.org.br/uploaded/arquivos/12_3_2019__0_w rocinha.png"
+                />
+                <div class="infos-2 gradient"></div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="col-md-3 p-0 top-2"
+            style="height: 300px; display: inline-table"
+          >
+            <div class="mais-procurado-2">
+              <a href="/procurado/paulinho-do-fogueteiro">
+                <div class="nome-2">Paulinho do Fogueteiro</div>
+                <img
+                  style="height: 300px;"
+                  class="img-fluid d-block pd5"
+                  src="https://www.procurados.org.br/uploaded/arquivos/FOGUETEIRO.jpg"
+                />
+                <div class="infos-2 gradient"></div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="col-md-3 p-0 top-2"
+            style="height: 300px; display: inline-table"
+          >
+            <div class="mais-procurado-2">
+              <a routerLink="/procurado/3876">
+                <div class="nome-2">Maitê</div>
+                <img
+                  style="height: 300px;"
+                  class="img-fluid d-block pd5"
+                  src="assets/images/20220806_114801.jpg"
+                />
+                <div class="infos-2 gradient"></div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="col-md-3 p-0 top-2"
+            style="height: 300px; display: inline-table"
+          >
+            <div class="mais-procurado-2">
+              <a href="/procurado/3980">
+                <div class="nome-2">Marujo ou Zoio</div>
+                <img
+                  style="height: 300px;"
+                  class="img-fluid d-block pd5"
+                  src="https://www.procurados.org.br/uploaded/arquivos/11_6_2021__0_MARUJO.jpg"
+                />
+                <div class="infos-2 gradient"></div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="col-md-3 p-0 top-2"
+            style="height: 300px; display: inline-table"
+          >
+            <div class="mais-procurado-2">
+              <a href="/procurado/3905">
+                <div class="nome-2">"Angeliquinha ou Guerreira"</div>
+                <img
+                  style="height: 300px;"
+                  class="img-fluid d-block pd5"
+                  src="https://www.procurados.org.br/uploaded/arquivos/11_2_2020__0_angelica.png"
+                />
+                <div class="infos-2 gradient"></div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="col-md-3 p-0 top-2"
+            style="height: 300px; display: inline-table"
+          >
+            <div class="mais-procurado-2">
+              <a href="/procurado/3733">
+                <div class="nome-2">"Buiu da Santa Maria"</div>
+                <img
+                  style="height: 300px;"
+                  class="img-fluid d-block pd5"
+                  src="https://www.procurados.org.br/uploaded/arquivos/7_6_2019__0_angelo.png"
+                />
+                <div class="infos-2 gradient"></div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="col-md-3 p-0 top-2"
+            style="height: 300px; display: inline-table"
+          >
+            <div class="mais-procurado-2">
+              <a href="/procurado/3625">
+                <div class="nome-2">Playboy</div>
+                <img
+                  style="height: 300px;"
+                  class="img-fluid d-block pd5"
+                  src="https://www.procurados.org.br/uploaded/arquivos/12_3_2019__0_vitor playboy.png"
+                />
+                <div class="infos-2 gradient"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 p-0 text-right top-3 f-left">
+          <a
+            class="btn btn-secondary text-uppercase"
+            href="/procurados/em-destaque"
+            ><span class="mais">+</span>Procurados</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Em destaque -->
+</div>

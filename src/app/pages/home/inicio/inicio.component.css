@@ -1,0 +1,75 @@
+h2,
+.h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffb400;
+  margin-bottom: 35px;
+}
+h2:after,
+.h2:after {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background: #fff;
+  margin-top: 10px;
+  display: block;
+}
+/* Mais procurados */
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+.img-fluid {
+  max-width: 100%;
+  min-width: 100%;
+  height: auto;
+}
+.mais-procurado img, .mais-procurado-2 img {
+  width: 100%;
+  object-fit: cover!important;
+  max-height: 500px;
+}
+.d-block {
+  display: block !important;
+}
+.mais-procurado .infos {
+  margin-top: -87px;
+  position: absolute;
+  padding: 20px;
+  height: 90px;
+}
+.gradient {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 1)))!important;
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))!important;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))!important;
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))!important;
+  background: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))!important;
+  background-color: rgba(0, 0, 0, 0)!important;
+}
+.mais-procurado .nome {
+  width: 35%;
+  float: left;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+}
+/* Mais procurados */
+
+/* Em Destaque */
+.mais-procurado-2 .nome-2 {
+  color: #fff;
+}
+.mais-procurado-2 .nome-2 {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+  height: 55px;
+  padding-top: 10px;
+  line-height: 18px;
+}
+/* Em Destaque */
