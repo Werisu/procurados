@@ -1,183 +1,179 @@
 <app-banner-procurados></app-banner-procurados>
+<ng-container *ngIf="criminoso.length !== 0; else erro">
 <div class="py-5 titulo-interna banTituloProcurado">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <h1 class="text-center">
-          "Maitê"<br />
-          <span>Maria Eduarda Dos Santos Penalva</span>
+          "{{ criminoso[0]?.vulgo }}"<br />
+          <span>{{ criminoso[0]?.nome_completo }}</span>
         </h1>
       </div>
     </div>
   </div>
 </div>
 
+<div class="container" *ngFor="let item of criminoso">
+    <div class="row top-7">
+      <div class="col-md-4">
+        <div class="col-md-12 p-0 top-3">
+          <a href="#" class="btn-foto-procurado">
+            <div class="mais-procurado">
+              <img
+                class="img-fluid d-block"
+                alt="5_12_2019__1_barbara.jpg"
+                [src]="item.imagem"
+              />
+              <div class="infos gradient"></div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-12 p-0">
+          <a role="button"
+            class="btn btn-secondary text-white text-uppercase w-100 top-2 fln btMobDown"
+            (click)="open(content)"
+            mobhref="18_9_2022__2_1.png"
+            data-fancybox=""
+            data-type="image"
+            target="_blank"
+            ><img src="https://www.procurados.org.br/images/icon-download-catalogo.png" />download do cartaz</a
+          >
+        </div>
+        <div class="col-md-12 p-0">
+          <ul class="menu-redes interna-procurado top-2">
+            <li>
+              <a class="share interna-procurado" href="#"> COMPARTILHAR </a>
+            </li>
+            <li>
+              <a
+                class="nav-link divisor"
+                href="https://www.facebook.com/sharer/sharer.php?u=https://novosite.procurados.org.br/procurado/3877"
+                target="_blank"
+              >
+                <img src="https://www.procurados.org.br/images/icon-facebook-red.png" />
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="https://twitter.com/home?status=https://novosite.procurados.org.br/procurado/3877"
+                target="_blank"
+              >
+                <img src="https://www.procurados.org.br/images/icon-twitter-red.png" />
+              </a>
+            </li>
+            <li class="dn">
+              <a
+                class="nav-link"
+                href="/compartilhar/?rede=inst&amp;tipo=procurado&amp;furl=3877"
+              >
+                <img src="https://www.procurados.org.br/images/icon-instagram-red.png" />
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="https://wa.me/?text=https://novosite.procurados.org.br/procurado/3877"
+              >
+                <img src="https://www.procurados.org.br/images/icon-whatsapp-red.png" />
+              </a>
+            </li>
+            <li class="dn">
+              <a
+                class="nav-link"
+                href="/compartilhar/?rede=tg&amp;tipo=procurado&amp;furl=3877"
+              >
+                <img src="https://www.procurados.org.br/images/icon-telegram-red.png" />
+              </a>
+            </li>
+            <li class="dn">
+              <a
+                class="nav-link"
+                href="/compartilhar/?rede=sk&amp;tipo=procurado&amp;furl=3877"
+              >
+                <img src="https://www.procurados.org.br/images/icon-skype-red.png" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8 pl-4">
+        <ul class="crimes">
+          <li>
+            <span class="num-1 dn"></span>
+            <!-- artigo 158, § 2º do Código Penal -->
+            {{ item.crimes[0] }} <br>
+            {{ item.crimes[1] }} <br>
+            {{ item.crimes[2] }} <br>
+          </li>
 
-<div class="container">
-  <div class="row top-7">
-    <div class="col-md-4">
-      <div class="col-md-12 p-0 top-3">
-        <a href="#" class="btn-foto-procurado">
-          <div class="mais-procurado">
-            <img
-              class="img-fluid d-block"
-              alt="5_12_2019__1_barbara.jpg"
-              src="assets/images/20220806_114801.jpg"
-            />
-            <div class="infos gradient"></div>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-12 p-0">
-        <a
-          class="btn btn-secondary text-uppercase w-100 top-2 fln btMobDown"
-          href="uploaded/arquivos/18_9_2022__2_1.png"
-          mobhref="18_9_2022__2_1.png"
-          data-fancybox=""
-          data-type="image"
-          target="_blank"
-          ><img src="https://www.procurados.org.br/images/icon-download-catalogo.png" />download do cartaz</a
-        >
-      </div>
-      <div class="col-md-12 p-0">
-        <ul class="menu-redes interna-procurado top-2">
           <li>
-            <a class="share interna-procurado" href="#"> COMPARTILHAR </a>
+            <span class="funcao"></span>{{ item.funcao }}
           </li>
-          <li>
-            <a
-              class="nav-link divisor"
-              href="https://www.facebook.com/sharer/sharer.php?u=https://novosite.procurados.org.br/procurado/3877"
-              target="_blank"
-            >
-              <img src="https://www.procurados.org.br/images/icon-facebook-red.png" />
-            </a>
-          </li>
-          <li>
-            <a
-              class="nav-link"
-              href="https://twitter.com/home?status=https://novosite.procurados.org.br/procurado/3877"
-              target="_blank"
-            >
-              <img src="https://www.procurados.org.br/images/icon-twitter-red.png" />
-            </a>
-          </li>
-          <li class="dn">
-            <a
-              class="nav-link"
-              href="/compartilhar/?rede=inst&amp;tipo=procurado&amp;furl=3877"
-            >
-              <img src="https://www.procurados.org.br/images/icon-instagram-red.png" />
-            </a>
-          </li>
-          <li>
-            <a
-              class="nav-link"
-              href="https://wa.me/?text=https://novosite.procurados.org.br/procurado/3877"
-            >
-              <img src="https://www.procurados.org.br/images/icon-whatsapp-red.png" />
-            </a>
-          </li>
-          <li class="dn">
-            <a
-              class="nav-link"
-              href="/compartilhar/?rede=tg&amp;tipo=procurado&amp;furl=3877"
-            >
-              <img src="https://www.procurados.org.br/images/icon-telegram-red.png" />
-            </a>
-          </li>
-          <li class="dn">
-            <a
-              class="nav-link"
-              href="/compartilhar/?rede=sk&amp;tipo=procurado&amp;furl=3877"
-            >
-              <img src="https://www.procurados.org.br/images/icon-skype-red.png" />
-            </a>
-          </li>
+          <li><span class="atuacao"></span>{{ item.local }}</li>
+
+          <li><span class="nascimento"></span>{{ item.dataNascimento }}</li>
+          <li><span class="num-rg"></span>{{ item.rg }}</li>
+          <li><span class="natural"></span>{{ item.naturalidade }}</li>
+          <li><span class="situacao"></span>{{ item.situacao }}</li>
         </ul>
       </div>
     </div>
-    <div class="col-md-8 pl-4">
-      <ul class="crimes">
-        <li>
-          <span class="num-1 dn"></span>
-          <!-- artigo 158, § 2º do Código Penal -->
-          1 - Extorsão Qualificada (Art. 158, § 2o. - CP) <br>
-          2 - Estelionato Qualificado (Art. 171, § 3o. - CP) <br>
-          3 - Abuso de Incapaz (Art. 173. - CP)
-        </li>
-
-        <li>
-          <span class="funcao"></span>Abuso de incapaz
-        </li>
-        <li><span class="atuacao"></span>Araguaína - TO</li>
-
-        <li><span class="nascimento"></span>25/01/2005</li>
-        <li><span class="num-rg"></span>Nº (S.S.P.) RG: 1704151</li>
-        <li><span class="natural"></span>Jacundá - PA</li>
-        <li><span class="situacao"></span>Procurada</li>
-      </ul>
+    <div class="row conteudo-interna top-4">
+      <div
+        class="d-flex flex-column justify-content-center col-lg-12 order-1 order-lg-2 p-2"
+      >
+        <h2>Histórico</h2>
+        <p>
+          <span [innerHTML]="item.historico"></span>
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="row conteudo-interna top-4">
-    <div
-      class="d-flex flex-column justify-content-center col-lg-12 order-1 order-lg-2 p-2"
-    >
-      <h2>Histórico</h2>
-      <p>
-        Maria Eduarda Dos Santos Penalva, - RG: 1704151 - Data de nascimento:
-        25/01/2005
-        <br />
-        <br />Foragida da Justiça desde 21/09/2023
-        <br />Crime: Extorsão Qualificada - Artigo 158, § 2º, do Código Penal.
-        <br />Crime: Estelionato Qualificado - Artigo 171, § 3º, do Código Penal.
-        <br />Crime: Abuso de Incapaz - Artigo 173 do Código Penal.
-        <br />Mandado
-        de prisão preventiva expedido pela 2ª Vara da Comarca de Araguaína - TO
-        <br />
-        <br />Número do Mandado de Prisão: 0027075-54.2013.8.19.0066.0003
-        <br />
-        <br />Qualquer informação sobre o paradeiro, favor entrar em contato e informar os dados aqui mencionados com a localização
-        do suspeito para que possa ser efetuada a sua imediata captura.
-        <br />Contamos com a sua colaboração.
-        <br />
-        <br />Quem tiver qualquer informação a respeito da localização de
-        foragidos da Justiça, favor denunciar pelos seguintes canais: Whatsapp
-        do Portal dos Procurados (62) 9117-9888. <br />
-      </p>
-    </div>
-  </div>
 
-  <div class="row conteudo-interna">
-    <div
-      class="d-flex flex-column justify-content-center col-lg-12 order-1 order-lg-2 p-2"
-    >
-      <h2>Mandados</h2>
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col" class="titulo"><span>Origem</span></th>
-              <th scope="col" class="titulo"><span>Processo</span></th>
-              <th scope="col" class="titulo"><span>expedição</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="line-2">
-              <th scope="row">
-                <span>Tribunal de Justiça Comarca de Araguaína</span>
-              </th>
-              <td>
-                <span
-                  >Número do Mandado CNJ:
-                  0027075-54.2013.8.19.0066.01.0005-09</span
-                >
-              </td>
-              <td><span>Data de expedição: 21/09/2023</span></td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="row conteudo-interna">
+      <div
+        class="d-flex flex-column justify-content-center col-lg-12 order-1 order-lg-2 p-2"
+      >
+        <h2>Mandados</h2>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col" class="titulo"><span>Origem</span></th>
+                <th scope="col" class="titulo"><span>Processo</span></th>
+                <th scope="col" class="titulo"><span>expedição</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="line-2">
+                <th scope="row">
+                  <span>{{ item.mandados.origem }}</span>
+                </th>
+                <td>
+                  <span
+                    >{{ item.mandados.processo }}</span
+                  >
+                </td>
+                <td><span>{{ item.mandados.expedicao }}</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</ng-container>
+
+<ng-template #erro>
+  <div class="container">
+    <div class="alert alert-secondary" role="alert">
+      Tivemos um problema no nosso servidor!
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #content let-modal>
+	<div class="modal-body">
+		<p>The requested content cannot be loaded. <br> Please try again later.</p>
+	</div>
+</ng-template>
